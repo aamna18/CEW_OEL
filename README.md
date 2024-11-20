@@ -41,7 +41,7 @@ The system is automated using shell scripts and utilizes modular programming tec
 
 ---
 
-##**reqirements**  
+## **reqirements**  
 1. Linux operating system.  
 2. GCC compiler for C programming.  
 3. `curl` library installed for HTTP requests.  
