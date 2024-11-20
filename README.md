@@ -5,7 +5,7 @@ This project is an integrated environmental monitoring system developed in C.
 It interacts with a free API to retrieve real-time environmental data, processes the data, and provides alerts when critical threshold is exceeded. 
 The system is automated using shell scripts and utilizes modular programming techniques to ensure maintainability and efficiency.
 
-##**project team**
+## **project team**
 -MUTAHIR AHMED
 -AMNA AHMED
 -ABEER KHAN
