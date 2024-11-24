@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CEW_PROJECT_DIR=$(find ~ -type d -name "CEW_PROJECT_DIR" 2>/dev/null | head -n 1)
+CEW_PROJECT_DIR=$(find ~ -type d -name "CEW_OEL-main" 2>/dev/null | head -n 1)
 
 if [ -z "$CEW_PROJECT_DIR" ]; then
     echo "CEW_Project directory not found."
