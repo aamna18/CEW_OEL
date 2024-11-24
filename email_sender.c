@@ -19,7 +19,7 @@ void sendEmailNotification(const char *subject, const char *body, const char *re
 
    
     curl_easy_setopt(curl, CURLOPT_USERNAME, "the.forecast.friend@gmail.com");
-    curl_easy_setopt(curl, CURLOPT_PASSWORD, "iuuw rmoz fbfi kmiv");  // Replace with your App Password
+    curl_easy_setopt(curl, CURLOPT_PASSWORD, "iuuw rmoz fbfi kmiv"); 
 
    
     curl_easy_setopt(curl, CURLOPT_LOGIN_OPTIONS, "AUTH=PLAIN");
@@ -46,8 +46,8 @@ void sendEmailNotification(const char *subject, const char *body, const char *re
     
     struct curl_mimepart *body_part = curl_mime_addpart(mime);
     char content_type[256];
-    snprintf(content_type, sizeof(content_type), "Content-Type: text/html; charset=UTF-8\r\n\r\n"); // <-- NEW LINE
-    curl_mime_data(body_part, content_type, CURL_ZERO_TERMINATED); // <-- NEW LINE
+    snprintf(content_type, sizeof(content_type), "Content-Type: text/html; charset=UTF-8\r\n\r\n"); 
+    curl_mime_data(body_part, content_type, CURL_ZERO_TERMINATED); 
     curl_mime_data(body_part, body, CURL_ZERO_TERMINATED);
 
    
