@@ -33,7 +33,7 @@ char* read_file(const char *filename) {
     return json_data;
 }
 
-// Function to calculate and display average temperatures, checking for temperature > 30°C
+
 void calculate_and_print_average_temperatures(const char *json_data) {
     FILE *output_file = fopen("processed_data.txt", "w");
     struct json_object *parsed_json, *forecast, *forecastday, *hourly_data, *temp_c, *max_temp, *min_temp;
@@ -49,7 +49,7 @@ void calculate_and_print_average_temperatures(const char *json_data) {
     if (json_object_object_get_ex(parsed_json, "forecast", &forecast) &&
         json_object_object_get_ex(forecast, "forecastday", &forecastday)) {
 
-        // Calculate today's average temperature from hourly data
+      
         struct json_object *first_day_forecast = json_object_array_get_idx(forecastday, 0);
         if (json_object_object_get_ex(first_day_forecast, "hour", &hourly_data)) {
             for (int i = 0; i < json_object_array_length(hourly_data); i++) {
@@ -61,7 +61,7 @@ void calculate_and_print_average_temperatures(const char *json_data) {
             }
         }
 
-        // Calculate average max and min temperatures for the next 7 days
+       
         int num_days = json_object_array_length(forecastday);
         for (int day = 0; day < num_days; day++) {
             struct json_object *day_forecast = json_object_array_get_idx(forecastday, day);
@@ -88,7 +88,7 @@ void calculate_and_print_average_temperatures(const char *json_data) {
         printf("| Average Minimum Temperature (7 Days) | %.2f°C |\n", weekly_average_min_temp);
         printf("+--------------------------------------+--------+\n");
 
-        // Store the data in file
+       
 
         fprintf(output_file, "Today's Average Temperature: %.2f°C\n", daily_average_temp);
         fprintf(output_file, "Average Maximum Temperature of Next 3 Days: %.2f°C\n", weekly_average_max_temp);
@@ -101,7 +101,7 @@ void calculate_and_print_average_temperatures(const char *json_data) {
     json_object_put(parsed_json);
 }
 
-// Function to display current weather details
+
 void get_current_weather(const char *json_data) {
     FILE *output_file = fopen("processed_data.txt", "a");
     struct json_object *parsed_json, *current, *temp_c, *wind_speed, *last_updated, *condition, *feels_like;
@@ -135,7 +135,7 @@ void get_current_weather(const char *json_data) {
         printf("| Wind Speed           | %.2f kph         |\n", json_object_get_double(wind_speed));
         printf("+----------------------+--------------------+\n");
        
-        // Store it in file
+        
         fprintf(output_file, "Current Date: %s\n", date);
         fprintf(output_file, "Current Time: %s\n", time);
         fprintf(output_file, " Current Temperature: %.2f°C\n", json_object_get_double(temp_c));
@@ -163,7 +163,7 @@ void get_current_weather(const char *json_data) {
     json_object_put(parsed_json);
 }
 
-// Function to calculate and display humidity information
+
 void calculate_and_print_humidity(const char *json_data) {
     FILE *output_file = fopen("processed_data.txt", "a");
     struct json_object *parsed_json, *current, *forecast, *forecastday, *day_forecast, *humidity;
