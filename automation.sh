@@ -11,7 +11,7 @@ cd "$CEW_PROJECT_DIR" || { echo "Failed to navigate to $CEW_PROJECT_DIR"; exit 1
 
 #loop to compile and execute the C code every 30 seconds
 while true; do
-    gcc project_file.c email_sender.c -o project_file -ljson-c -lcurl
+    gcc project_file.c email_sender.c module1.c -o project_file -ljson-c -lcurl
     if [ $? -ne 0 ]; then
         echo "Compilation failed."
         exit 1
